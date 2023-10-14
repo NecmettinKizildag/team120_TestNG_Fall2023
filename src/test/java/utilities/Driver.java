@@ -3,6 +3,9 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
@@ -19,11 +22,30 @@ public class Driver {
 
     static WebDriver driver;
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         WebDriverManager.chromedriver().setup();
 
-        if (driver==null){
-            driver = new ChromeDriver();
+        String browser = ConfigReader.getProperty("browser");
+
+        if (driver == null) {
+
+            switch (browser) {
+                case "safari":
+                    WebDriverManager.safaridriver().setup();
+                    driver = new SafariDriver();
+                    break;
+                case "firefox":
+                    WebDriverManager.safaridriver().setup();
+                    driver = new FirefoxDriver();
+                    break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
+                    break;
+                default:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+            }
         }
 
         driver.manage().window().maximize();
@@ -32,9 +54,9 @@ public class Driver {
         return driver;
     }
 
-    public static void closeDriver(){
+    public static void closeDriver() {
 
-        if (driver != null){
+        if (driver != null) {
             driver.close();
             driver = null;
         }
