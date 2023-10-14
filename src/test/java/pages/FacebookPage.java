@@ -22,4 +22,7 @@ public class FacebookPage {
 
     @FindBy(xpath = "//button[@class='_42ft _4jy0 _al65 _4jy3 _4jy1 selected _51sy']")
     public WebElement cookiesAllow;
+
+    @FindBy(xpath = "//div[@class='_9ay7']")
+    public WebElement loginFailedTextElement;
 }

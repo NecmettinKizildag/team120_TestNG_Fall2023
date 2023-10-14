@@ -1,6 +1,7 @@
 package tests.day16_testNG_framework;
 
 import com.github.javafaker.Faker;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FacebookPage;
 import utilities.Driver;
@@ -24,6 +25,7 @@ public class C03_FacebookTest {
 
         facebookPage.cookiesAllow.click();
 
+
         facebookPage.emaiLoginBox.sendKeys(faker.internet().emailAddress());
 
         facebookPage.passwordLoginBox.sendKeys(faker.internet().password());
@@ -33,6 +35,11 @@ public class C03_FacebookTest {
 
 
         //4- Basarili giris yapilamadigini test edin
+        Assert.assertTrue(facebookPage.loginFailedTextElement.isDisplayed());
+
+        ReusableMethods.takeScreenshotOfPage("facebookLoginFailed");
+
+        Driver.closeDriver();
 
     }
 }
