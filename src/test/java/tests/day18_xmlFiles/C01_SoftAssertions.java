@@ -8,6 +8,7 @@ import org.testng.asserts.SoftAssert;
 import pages.ZeroWebAppSecurityPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,12 +72,17 @@ public class C01_SoftAssertions {
 
         List<WebElement> dropdownElementleriList = select.getOptions();
 
+        /*
         List<String> actualDropdownOpsiyonlariList = new ArrayList<>();
 
         for (WebElement each:dropdownElementleriList
              ) {
             actualDropdownOpsiyonlariList.add(each.getText());
         }
+         */
+
+        List<String> actualDropdownOpsiyonlariList = ReusableMethods.stringListeCevir(dropdownElementleriList);
+
 
         softAssert.assertEquals(actualDropdownOpsiyonlariList,expectedDropdownElementList,"dropdown opsiyonlari istenen sekilde degil");
 
