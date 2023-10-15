@@ -12,7 +12,7 @@
     verbose ==> konsolda yazdirilan ayrinti miktarini kontrol eder
                 1-10 arasinda deger alir
                 1 en az ayrinti
-                10 en fazla ayrinti
+                10 en fazla ayrinti1 1
     -->
 
 <suite name="paralel calsitirma" thread-count="2" parallel="tests" verbose="1">
