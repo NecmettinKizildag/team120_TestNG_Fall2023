@@ -17,7 +17,7 @@ public class C01_Priority {
 
     }
 
-    @Test
+    @Test(groups = {"smoke","e2e1","regression"})
     public void toplamaTesti(){
 
         // sayilarin toplaminin pozitif bir sayi oldugunu test edin

@@ -9,7 +9,7 @@ import utilities.ReusableMethods;
 
 public class C03_FacebookTest {
 
-    @Test
+    @Test(groups = {"regression"})
     public void facebookTest(){
 
         //1 - https://www.facebook.com/ adresine gidin

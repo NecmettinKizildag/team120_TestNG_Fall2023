@@ -46,7 +46,7 @@ public class C05_SoftAssert {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
 
         // url'in amazon icerdigini test edelim
-        String expectedUrlContent = "Ramazon";
+        String expectedUrlContent = "amazon";
         String actualUrl = Driver.getDriver().getCurrentUrl();
 
         SoftAssert softAssert = new SoftAssert();
@@ -62,7 +62,7 @@ public class C05_SoftAssert {
 
         // sonuclarin aranacak kelimeyi icerdigini test edelim
         String actualResultText = amazonPage.resultTextElement.getText();
-        String expectedResultText = ConfigReader.getProperty("amazonSearchWord2");
+        String expectedResultText = ConfigReader.getProperty("amazonSearchWord");
 
         softAssert.assertTrue(actualResultText.contains(expectedResultText),"arama sonuclari istenen kelimeyi icermiyor");
 
@@ -70,7 +70,7 @@ public class C05_SoftAssert {
         amazonPage.firstItem.click();
 
         // ilk urun isminde aranacak kelime bulundugunu test edelim
-        String expectedProductTitle = ConfigReader.getProperty("amazonSearchWord2");
+        String expectedProductTitle = ConfigReader.getProperty("amazonSearchWord");
         String actualProductTitle = amazonPage.productTitle.getText();
 
         softAssert.assertTrue(actualProductTitle.contains(expectedProductTitle),"ilk urun ismi arranan kelimeyi icermiyor");

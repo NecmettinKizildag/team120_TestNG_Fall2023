@@ -10,7 +10,7 @@ public class C05_QualitydemyNegativeTest {
 
     QualitydemyPage qualitydemyPage ;
 
-    @Test
+    @Test(groups = {"smoke","regression"})
     public void invalidPasswordTest(){
 
         Driver.getDriver().get("https://www.qualitydemy.com/");
@@ -29,7 +29,7 @@ public class C05_QualitydemyNegativeTest {
         Driver.closeDriver();
     }
 
-    @Test
+    @Test(groups = {"smoke","e2e1"})
     public void invalidEmailTest(){
 
         Driver.getDriver().get("https://www.qualitydemy.com/");
@@ -49,7 +49,7 @@ public class C05_QualitydemyNegativeTest {
     }
 
 
-    @Test
+    @Test(groups = {"e2e1","regression"})
     public void invalidEmailInvalidPasswordTest(){
 
         Driver.getDriver().get("https://www.qualitydemy.com/");
